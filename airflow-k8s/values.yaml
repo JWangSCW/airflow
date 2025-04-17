@@ -1,6 +1,2 @@
 airflow:
   helmChartVersion: "1.14.0"
-
-web:
-  service:
-    type: LoadBalancer

@@ -45,18 +45,6 @@ resource "scaleway_k8s_cluster" "main" {
   delete_additional_resources = true
 }
 
-# Pool de noeuds
-# resource "scaleway_k8s_pool" "airbyte" {
-#   cluster_id  = scaleway_k8s_cluster.main.id
-#   name        = "airbyte-pool"
-#   node_type   = "PRO2-M"
-#   size        = 1
-#   autoscaling = true
-#   min_size    = 1
-#   max_size    = 2
-#   tags        = ["airbyte"]
-# }
-
 resource "scaleway_k8s_pool" "airflow_dbt" {
   cluster_id  = scaleway_k8s_cluster.main.id
   name        = "airflow-dbt-pool"
@@ -70,27 +58,6 @@ resource "scaleway_k8s_pool" "airflow_dbt" {
     "airflow", "dbt"
   ]
 }
-
-
-# Airflow installé via Helm dans le cluster
-# resource "helm_release" "airflow" {
-#   name       = "airflow"
-#   namespace  = "airflow"
-#   repository = "https://airflow.apache.org"
-#   chart      = "airflow"
-#   version    = "1.12.0"
-
-#   create_namespace = true
-
-#   values = [
-#     file("values/airflow-values.yaml")
-#   ]
-
-#   depends_on = [
-#     scaleway_k8s_cluster.main,
-#     scaleway_k8s_pool.airflow_dbt,
-#   ]
-# }
 
 resource "helm_release" "argocd" {
   name       = "argocd"
