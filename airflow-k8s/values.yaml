@@ -1,2 +1,7 @@
 airflow:
   helmChartVersion: "1.14.0"
+
+  webserver:
+    service:
+      type: LoadBalancer
+    
