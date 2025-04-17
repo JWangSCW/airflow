@@ -2769,7 +2769,7 @@ dags:
     # ssh example: git@github.com:apache/airflow.git
     # https example: https://github.com/apache/airflow.git
     repo: https://github.com/apache/airflow.git
-    branch: v2-2-stable
+    branch: "main"
     rev: HEAD
     # The git revision (branch, tag, or hash) to check out, v4 only
     ref: v2-2-stable
@@ -2778,7 +2778,7 @@ dags:
     maxFailures: 0
     # subpath within the repo where dags are located
     # should be "" if dags are at repo root
-    subPath: "/dags"
+    subPath: "dags"
     # if your repo needs a user name password
     # you can load them to a k8s secret like the one below
     #   ---
