@@ -11,3 +11,6 @@ spec:
     path: airflow-k8s
   destination:
     server: https://kubernetes.default.svc
+web:
+  service:
+    type: LoadBalancer
