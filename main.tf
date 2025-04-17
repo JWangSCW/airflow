@@ -107,16 +107,3 @@ resource "helm_release" "argocd" {
   ]
 
 }
-
-resource "helm_release" "airflow" {
-  name             = "airflow"
-  namespace        = "airflow"
-  create_namespace = true
-  chart            = "${path.module}/airflow-k8s"
-  values           = [file("${path.module}/values/airflow-values.yaml")]
-
-  depends_on = [
-    scaleway_k8s_cluster.main,
-    scaleway_k8s_pool.main,
-  ]
-}

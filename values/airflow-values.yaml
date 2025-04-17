@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    # repoURL: https://github.com/xrayid/airflow-k8s.git
+    repoURL: https://github.com/JWangSCW/airflow.git/airflow-k8s
     targetRevision: HEAD
     path: airflow-k8s
   destination:
