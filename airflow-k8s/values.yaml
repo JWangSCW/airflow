@@ -5,12 +5,12 @@ airflow:
     service:
       type: LoadBalancer
   
-  dags:
-    gitSync:
-      enabled: true  # Active le téléchargement automatique des DAGs via un sidecar git-sync&#8203;:contentReference[oaicite:0]{index=0}
-      repo: "https://github.com/JWangSCW/airflow.git"  # URL du dépôt Git contenant les DAGs à déployer&#8203;:contentReference[oaicite:1]{index=1}
-      branch: "main"  # Branche Git à suivre pour la synchronisation (par défaut 'main')&#8203;:contentReference[oaicite:2]{index=2}
-      subPath: "dags"  # Chemin dans le dépôt où se trouvent les DAGs (ex: dossier 'dags')&#8203;:contentReference[oaicite:3]{index=3}
+dags:
+  gitSync:
+    enabled: true  # Active le téléchargement automatique des DAGs via un sidecar git-sync&#8203;:contentReference[oaicite:0]{index=0}
+    repo: "https://github.com/JWangSCW/airflow.git"  # URL du dépôt Git contenant les DAGs à déployer&#8203;:contentReference[oaicite:1]{index=1}
+    branch: "main"  # Branche Git à suivre pour la synchronisation (par défaut 'main')&#8203;:contentReference[oaicite:2]{index=2}
+    subPath: "dags"  # Chemin dans le dépôt où se trouvent les DAGs (ex: dossier 'dags')&#8203;:contentReference[oaicite:3]{index=3}
       # Astuce : si les DAGs se trouvent à la racine du dépôt, laissez subPath vide ("") ou supprimez cette clé.
       # En activant gitSync, le chart Helm ajoute un conteneur sidecar 'git-sync' aux pods Airflow concernés 
       # (scheduler, workers, triggerer) afin qu'ils partagent les DAGs mis à jour depuis le dépôt&#8203;:contentReference[oaicite:4]{index=4}.
